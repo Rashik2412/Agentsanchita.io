@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffdaeb">
+  <title>Operation Sanchita 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="floating-hearts" aria-hidden="true">
+    <span>💗</span><span>✨</span><span>🎀</span>
+    <span>🩷</span><span>⭐</span><span>💗</span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand" id="secretLogo">🎀 OPERATION S</div>
+    <div class="top-status"><span class="status-dot"></span> CLASSIFIED MISSION</div>
+  </header>
+
+  <main class="app">
+
+    <!-- SCREEN 1: INTRO -->
+    <section class="screen active" id="welcome">
+      <div class="eyebrow">TOP SECRET • PERSONNEL ONLY</div>
+      <div class="hero-icon">🕵️‍♀️</div>
+      <h1>Welcome,<br><span>Agent Sanchita.</span></h1>
+      <p class="subtitle">A very important mission has been assigned to you.</p>
+
+      <div class="glass-card">
+        <div class="card-label">MISSION BRIEFING #001</div>
+        <h2>Operation: Birthday Surprise</h2>
+        <p>Agent, your birthday is approaching. Our intelligence team has prepared something suspiciously pink.</p>
+        <div class="stamp">CONFIDENTIAL</div>
+      </div>
+
+      <button class="primary-btn" data-go="verification">Accept mission <span>→</span></button>
+      <p class="tiny-note">Warning: excessive cuteness detected.</p>
+    </section>
+
+    <!-- SCREEN 2: VERIFICATION -->
+    <section class="screen" id="verification">
+      <div class="eyebrow">SECURITY CHECKPOINT 01</div>
+      <div class="big-emoji">🔐</div>
+      <h1>Agent verification</h1>
+      <p class="subtitle">Only the real Sanchita can pass this test.</p>
+
+      <div class="glass-card">
+        <p class="question">Which field of science has captured your interest?</p>
+        <div class="choice-list">
+          <button class="choice" data-answer="wrong">Astrology 🔮</button>
+          <button class="choice" data-answer="correct">Molecular Biology 🧬</button>
+          <button class="choice" data-answer="wrong">Advanced nap studies 💤</button>
+        </div>
+        <p id="verificationMessage" class="feedback" aria-live="polite"></p>
+      </div>
+      <button class="secondary-btn" data-go="welcome">← Back</button>
+    </section>
+
+    <!-- SCREEN 3: DOSSIER -->
+    <section class="screen" id="dossier">
+      <div class="eyebrow">SECURITY CHECKPOINT 02</div>
+      <h1>Agent dossier 📁</h1>
+      <p class="subtitle">Our investigation has uncovered some highly classified facts.</p>
+
+      <div class="dossier-grid">
+        <div class="dossier-card">
+          <div>🧬</div><h3>Scientist mode</h3>
+          <p>Molecular biology enthusiast. Tiny molecules, big brain energy.</p>
+        </div>
+        <div class="dossier-card">
+          <div>🏋️‍♀️</div><h3>Gym mode</h3>
+          <p>Strong enough to lift weights. Still can't lift the responsibility of replying quickly.</p>
+        </div>
+        <div class="dossier-card">
+          <div>💤</div><h3>Sleep mode</h3>
+          <p>Professional sleeper. Sleep is not a hobby. It's a lifestyle.</p>
+        </div>
+        <div class="dossier-card">
+          <div>🎀</div><h3>Secret identity</h3>
+          <p>Extremely suspicious levels of cuteness detected.</p>
+        </div>
+      </div>
+
+      <button class="primary-btn" data-go="slime">Investigate the incident →</button>
+    </section>
+
+    <!-- SCREEN 4: SLIME -->
+    <section class="screen" id="slime">
+      <div class="eyebrow">LABORATORY • INCIDENT 404</div>
+      <h1>The pink slime incident 🧪</h1>
+      <p class="subtitle">A mysterious substance has appeared in the laboratory.</p>
+
+      <div class="lab-card">
+        <div class="lab-warning">⚠️ UNKNOWN SUBSTANCE DETECTED</div>
+        <div class="slime" id="slimeBlob" role="button" tabindex="0" aria-label="Tap the pink slime">🩷</div>
+        <h2 id="slimeTitle">Specimen P-INK</h2>
+        <p id="slimeText">Tap the specimen to begin the investigation.</p>
+        <div class="progress-track"><div id="slimeProgress"></div></div>
+        <p class="tiny-note" id="slimeCount">Samples analysed: 0 / 5</p>
+      </div>
+
+      <button class="primary-btn" id="slimeContinue" hidden data-go="quiz">Continue mission →</button>
+    </section>
+
+    <!-- SCREEN 5: BIO QUIZ -->
+    <section class="screen" id="quiz">
+      <div class="eyebrow">SCIENCE DIVISION • TEST 001</div>
+      <h1>Scientist challenge 🧬</h1>
+      <p class="subtitle">Three questions. One suspiciously smart agent.</p>
+
+      <div class="glass-card">
+        <div class="quiz-meta"><span id="questionNumber">QUESTION 1 / 3</span><span id="quizScore">SCORE: 0</span></div>
+        <h2 id="quizQuestion">Which molecule carries genetic information?</h2>
+        <div id="quizOptions" class="choice-list"></div>
+        <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+        <button class="primary-btn" id="nextQuestion" hidden>Next question →</button>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: GYM OR SLEEP -->
+    <section class="screen" id="challenge">
+      <div class="eyebrow">PERSONALITY ANALYSIS</div>
+      <h1>One impossible choice.</h1>
+      <p class="subtitle">The agency needs to understand your priorities.</p>
+
+      <div class="glass-card">
+        <h2>It's a free day. What's the plan?</h2>
+        <div class="challenge-options">
+          <button class="challenge-choice" data-choice="gym">
+            <span>🏋️‍♀️</span><strong>GYM TIME</strong><small>Discipline never sleeps.</small>
+          </button>
+          <button class="challenge-choice" data-choice="sleep">
+            <span>💤</span><strong>SLEEP TIME</strong><small>I'll just close my eyes for five minutes.</small>
+          </button>
+        </div>
+        <p id="challengeFeedback" class="feedback"></p>
+      </div>
+    </section>
+
+    <!-- SCREEN 7: FRIENDSHIP ARCHIVE -->
+    <section class="screen" id="archive">
+      <div class="eyebrow">PERSONAL ARCHIVE • ACCESS GRANTED</div>
+      <h1>The friendship files 💌</h1>
+      <p class="subtitle">Some things deserve their own little archive.</p>
+
+      <div class="memory-card">
+        <div class="memory-icon">🌍</div>
+        <h2>First interstate friendship</h2>
+        <p>Different places, different routines, and somehow a friendship that made the internet feel a little smaller.</p>
+      </div>
+      <div class="memory-card">
+        <div class="memory-icon">😂</div>
+        <h2>Official roast department</h2>
+        <p>Because a little friendly teasing is practically a friendship tradition.</p>
+      </div>
+      <div class="memory-card">
+        <div class="memory-icon">✨</div>
+        <h2>Future scientist energy</h2>
+        <p>May your curiosity keep growing and your experiments behave themselves. Mostly.</p>
+      </div>
+
+      <button class="primary-btn" data-go="letter">Open the final file →</button>
+    </section>
+
+    <!-- SCREEN 8: LETTER -->
+    <section class="screen" id="letter">
+      <div class="eyebrow">FINAL CLASSIFIED FILE</div>
+      <div class="big-emoji">💌</div>
+      <h1>A message for you.</h1>
+
+      <div class="letter-card">
+        <p>Dear Sanchita,</p>
+        <p>Happy Birthday! 🎀</p>
+        <p>Keep being curious, keep chasing your dreams, keep making time for the gym, and please never underestimate the importance of a good nap.</p>
+        <p>I hope this next chapter brings you exciting discoveries, wonderful memories, lots of laughter, and all the happiness you deserve.</p>
+        <p>Stay the same wonderfully weird person you are. The world needs more people who are curious enough to explore it.</p>
+        <p class="letter-sign">Your fellow agent,<br><strong>Rashik</strong> 🕵️</p>
+      </div>
+
+      <button class="primary-btn" data-go="birthday">Unlock the birthday surprise 🎂</button>
+    </section>
+
+    <!-- SCREEN 9: BIRTHDAY -->
+    <section class="screen birthday-screen" id="birthday">
+      <div class="eyebrow">MISSION ACCOMPLISHED</div>
+      <div class="cake">🎂</div>
+      <h1>HAPPY BIRTHDAY,<br><span>SANCHITA!</span></h1>
+      <p class="subtitle">May your day be pink, peaceful, hilarious and full of cake.</p>
+      <div class="birthday-message">
+        <p>🎀 Official status: Too awesome to be classified.</p>
+        <p>🧬 Scientist status: Future legend.</p>
+        <p>💤 Sleep status: Probably unavailable.</p>
+      </div>
+      <button class="primary-btn" id="confettiButton">Celebrate again! 🎉</button>
+      <button class="secondary-btn" id="restartButton">Replay the mission ↻</button>
+    </section>
+
+    <!-- HIDDEN SURPRISE -->
+    <section class="screen" id="secret">
+      <div class="eyebrow">UNAUTHORIZED ACCESS</div>
+      <div class="big-emoji">👀</div>
+      <h1>You found the secret!</h1>
+      <div class="glass-card">
+        <h2>Secret message #007</h2>
+        <p>Congratulations, Agent. You have officially discovered something that was not supposed to be found.</p>
+        <p>Reward: unlimited imaginary pink slime and one very special birthday wish. 💗</p>
+      </div>
+      <button class="primary-btn" data-go="birthday">Return to birthday →</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>OPERATION S • EST. 2026</span>
+    <span>MADE WITH 💗 AND QUESTIONABLE SCIENCE</span>
+  </footer>
+
+  <div id="confettiLayer" aria-hidden="true"></div>
+  <div id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
